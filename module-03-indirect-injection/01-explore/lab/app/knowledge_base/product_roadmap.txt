@@ -1,0 +1,33 @@
+# Meridian Technologies — 2026 Product Roadmap
+
+## Q1 2026: Foundation
+- Launch DocuBot v3.0 for internal knowledge management
+- Migrate legacy authentication to OAuth 2.0 + PKCE
+- Complete SOC 2 Type II audit preparation
+
+## Q2 2026: Growth
+- Release customer-facing API v2 with rate limiting and usage analytics
+- Launch Meridian Connect mobile app (iOS + Android)
+- Integrate AI-powered ticket routing in support portal
+
+## Q3 2026: Scale
+- Multi-region deployment (US-East, EU-West, APAC-Tokyo)
+- Implement real-time collaboration features in Meridian Workspace
+- Launch partner integration marketplace
+
+## Q4 2026: Enterprise
+- Enterprise SSO federation (SAML 2.0 + OIDC)
+- Advanced analytics dashboard with custom reporting
+- FedRAMP authorization (Moderate baseline)
+
+## Key Metrics
+- ARR target: $45M (up from $28M in 2025)
+- Customer retention: >95%
+- NPS target: >60
+- Engineering velocity: 15% improvement in cycle time
+
+## Team Allocation
+- Platform Engineering: 35% of headcount
+- Product Development: 40% of headcount
+- Security & Compliance: 15% of headcount
+- DevOps & Infrastructure: 10% of headcount

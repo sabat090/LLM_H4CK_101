@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PromptLabs</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="lab-title">PromptLabs</h1>
+            <p id="lab-subtitle" class="subtitle"></p>
+        </header>
+
+        <div id="chat-box" class="chat-box">
+            <div class="message bot">
+                <span class="label">Assistant</span>
+                <p>Hello! How can I help you today?</p>
+            </div>
+        </div>
+
+        <form id="chat-form" class="chat-input">
+            <input
+                type="text"
+                id="user-input"
+                placeholder="Type your message..."
+                autocomplete="off"
+                autofocus
+            >
+            <button type="submit" id="send-btn">Send</button>
+        </form>
+
+        <footer>
+            <p class="footer-text">
+                ⚠️ This application is <strong>intentionally vulnerable</strong>.
+                Do not deploy on a public network.
+            </p>
+        </footer>
+    </div>
+
+    <script src="/static/chat.js"></script>
+</body>
+</html>

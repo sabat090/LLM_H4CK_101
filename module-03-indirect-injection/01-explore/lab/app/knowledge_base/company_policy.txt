@@ -1,0 +1,27 @@
+# Meridian Technologies — Employee Policy Handbook
+
+## Remote Work Policy
+Employees may work remotely up to 3 days per week with manager approval.
+Core collaboration hours are 10:00 AM – 3:00 PM in the employee's local timezone.
+Remote workers must maintain a reliable internet connection and be reachable via Slack.
+
+## Expense Policy
+Business expenses over $500 require VP-level pre-approval.
+Travel bookings must be made through the approved corporate travel portal.
+Meal reimbursement is capped at $75/day for domestic travel and $100/day internationally.
+
+## Security Policy
+All employees must complete annual security awareness training by Q4.
+Multi-factor authentication (MFA) is mandatory for all internal systems.
+Sensitive data must be classified according to the Data Classification Framework:
+  - PUBLIC: Marketing materials, published blog posts
+  - INTERNAL: Strategy documents, meeting notes, roadmaps
+  - CONFIDENTIAL: Customer data, financial records, API keys
+  - RESTRICTED: Encryption keys, security audit results
+
+Report security incidents to security@meridiantech.com within 24 hours.
+
+## PTO Policy
+Full-time employees accrue 20 days PTO per calendar year.
+Unused PTO carries over up to a maximum of 5 days.
+PTO requests should be submitted at least 2 weeks in advance for absences > 3 days.
