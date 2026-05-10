@@ -7,6 +7,7 @@ The user never sends the injection — it comes from the data.
 """
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 from contextlib import asynccontextmanager
@@ -28,6 +29,8 @@ KB_DIR = APP_DIR / "knowledge_base"
 
 LAB_TITLE = "Meridian Technologies — DocuBot"
 LAB_SUBTITLE = "Internal Knowledge Base Assistant"
+LAB_MODULE = "MODULE 03 — EXPLORE"
+LAB_DIFFICULTY = "intermediate"
 
 # ── Load knowledge base ──────────────────────────────────────────────
 def load_documents() -> dict[str, str]:
@@ -73,12 +76,18 @@ app.mount("/static", StaticFiles(directory=str(CHAT_UI_DIR)), name="static")
 @app.get("/", response_class=HTMLResponse)
 async def index():
     html = (CHAT_UI_DIR / "index.html").read_text(encoding="utf-8")
-    html = html.replace("PromptLabs", LAB_TITLE)
+    config = json.dumps({"title": LAB_TITLE, "subtitle": LAB_SUBTITLE,
+                         "module": LAB_MODULE, "difficulty": LAB_DIFFICULTY})
     html = html.replace(
-        '<p id="lab-subtitle" class="subtitle"></p>',
-        f'<p id="lab-subtitle" class="subtitle">{LAB_SUBTITLE}</p>',
+        '{"title":"Loading...","subtitle":"","module":"","variant":"","difficulty":"","port":0}',
+        config,
     )
     return HTMLResponse(html)
+
+
+@app.get("/api/info")
+async def lab_info():
+    return {"model": llm_backend.MODEL, "provider": llm_backend.PROVIDER}
 
 
 @app.post("/api/chat")

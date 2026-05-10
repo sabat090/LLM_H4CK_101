@@ -5,6 +5,7 @@ advanced techniques (encoding, multi-turn, creative paraphrasing).
 """
 from __future__ import annotations
 
+import json
 import os
 import re
 import sys
@@ -29,6 +30,8 @@ CHAT_UI_DIR = PROJECT_ROOT / "shared" / "chat_ui"
 
 LAB_TITLE = "MedAssist Patient Portal (v2.0 Secured)"
 LAB_SUBTITLE = "MedAssist Inc. — AI-Powered Health FAQ (Hardened)"
+LAB_MODULE = "MODULE 01 — HARDENED"
+LAB_DIFFICULTY = "advanced"
 
 # ── Input filters ──────────────────────────────────────────────────────
 BLOCKED_INPUT = [
@@ -87,12 +90,18 @@ app.mount("/static", StaticFiles(directory=str(CHAT_UI_DIR)), name="static")
 @app.get("/", response_class=HTMLResponse)
 async def index():
     html = (CHAT_UI_DIR / "index.html").read_text(encoding="utf-8")
-    html = html.replace("PromptLabs", LAB_TITLE)
+    config = json.dumps({"title": LAB_TITLE, "subtitle": LAB_SUBTITLE,
+                         "module": LAB_MODULE, "difficulty": LAB_DIFFICULTY})
     html = html.replace(
-        '<p id="lab-subtitle" class="subtitle"></p>',
-        f'<p id="lab-subtitle" class="subtitle">{LAB_SUBTITLE}</p>',
+        '{"title":"Loading...","subtitle":"","module":"","variant":"","difficulty":"","port":0}',
+        config,
     )
     return HTMLResponse(html)
+
+
+@app.get("/api/info")
+async def lab_info():
+    return {"model": llm_backend.MODEL, "provider": llm_backend.PROVIDER}
 
 
 @app.post("/api/chat")

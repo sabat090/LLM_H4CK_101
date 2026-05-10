@@ -1,6 +1,7 @@
 """Module 04-H — ResearchBot (hardened with URL allowlist + IP validation)."""
 from __future__ import annotations
 
+import json
 import re
 import sys
 import socket
@@ -26,6 +27,8 @@ CHAT_UI_DIR = PROJECT_ROOT / "shared" / "chat_ui"
 
 LAB_TITLE = "DataPulse Analytics — ResearchBot (Secured)"
 LAB_SUBTITLE = "AI Research Assistant (Hardened)"
+LAB_MODULE = "MODULE 04 — HARDENED"
+LAB_DIFFICULTY = "advanced"
 
 FETCH_PATTERN = re.compile(r'\[FETCH:\s*(https?://[^\]\s]+)\s*\]')
 
@@ -131,12 +134,18 @@ async def internal_config():
 @app.get("/", response_class=HTMLResponse)
 async def index():
     html = (CHAT_UI_DIR / "index.html").read_text(encoding="utf-8")
-    html = html.replace("PromptLabs", LAB_TITLE)
+    config = json.dumps({"title": LAB_TITLE, "subtitle": LAB_SUBTITLE,
+                         "module": LAB_MODULE, "difficulty": LAB_DIFFICULTY})
     html = html.replace(
-        '<p id="lab-subtitle" class="subtitle"></p>',
-        f'<p id="lab-subtitle" class="subtitle">{LAB_SUBTITLE}</p>',
+        '{"title":"Loading...","subtitle":"","module":"","variant":"","difficulty":"","port":0}',
+        config,
     )
     return HTMLResponse(html)
+
+
+@app.get("/api/info")
+async def lab_info():
+    return {"model": llm_backend.MODEL, "provider": llm_backend.PROVIDER}
 
 
 async def fetch_url_safe(url: str) -> str:

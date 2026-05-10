@@ -8,6 +8,7 @@ The internal /internal/config endpoint contains the flag.
 """
 from __future__ import annotations
 
+import json
 import re
 import sys
 from pathlib import Path
@@ -30,6 +31,8 @@ CHAT_UI_DIR = PROJECT_ROOT / "shared" / "chat_ui"
 
 LAB_TITLE = "DataPulse Analytics — ResearchBot"
 LAB_SUBTITLE = "AI-Powered Research Assistant"
+LAB_MODULE = "MODULE 04 — EXPLORE"
+LAB_DIFFICULTY = "intermediate"
 
 # Regex to find [FETCH: <url>] in LLM output
 FETCH_PATTERN = re.compile(r'\[FETCH:\s*(https?://[^\]\s]+)\s*\]')
@@ -87,12 +90,18 @@ async def internal_admin():
 @app.get("/", response_class=HTMLResponse)
 async def index():
     html = (CHAT_UI_DIR / "index.html").read_text(encoding="utf-8")
-    html = html.replace("PromptLabs", LAB_TITLE)
+    config = json.dumps({"title": LAB_TITLE, "subtitle": LAB_SUBTITLE,
+                         "module": LAB_MODULE, "difficulty": LAB_DIFFICULTY})
     html = html.replace(
-        '<p id="lab-subtitle" class="subtitle"></p>',
-        f'<p id="lab-subtitle" class="subtitle">{LAB_SUBTITLE}</p>',
+        '{"title":"Loading...","subtitle":"","module":"","variant":"","difficulty":"","port":0}',
+        config,
     )
     return HTMLResponse(html)
+
+
+@app.get("/api/info")
+async def lab_info():
+    return {"model": llm_backend.MODEL, "provider": llm_backend.PROVIDER}
 
 
 async def fetch_url(url: str) -> str:
