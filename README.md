@@ -10,7 +10,7 @@
 
 Hands-on, CTF-style labs for learning to attack and defend LLM-powered applications. Each module follows a four-phase **EXPLORE → LEARN → PROVE → REFLECT** pedagogy based on Kolb's experiential learning cycle.
 
-Built for security professionals, penetration testers, and developers who want to understand LLM vulnerabilities through practice — not just theory.
+Built for security professionals, penetration testers, red teamers, and developers who want to understand LLM vulnerabilities through practice — not just theory. Use these prompt injection labs to sharpen your AI security and LLM pentesting skills in a safe, offline environment.
 
 ## Modules
 
