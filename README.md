@@ -1,4 +1,12 @@
-# PromptLabs — LLM Security Training Labs
+# LLM_H4CK_101 — LLM Security Training Labs
+
+[![GitHub stars](https://img.shields.io/github/stars/sabat090/LLM_H4CK_101?style=flat&logo=github)](https://github.com/sabat090/LLM_H4CK_101/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/sabat090/LLM_H4CK_101/blob/main/LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![OWASP LLM Top 10](https://img.shields.io/badge/OWASP-LLM%20Top%2010-red?logo=owasp)](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
+[![Ollama](https://img.shields.io/badge/Runs%20with-Ollama-black?logo=ollama)](https://ollama.com/)
+
+> Open-source CTF labs for LLM security — hands-on OWASP Top 10 for LLMs with real exploits, flags, and defenses. Runs locally with Ollama.
 
 Hands-on, CTF-style labs for learning to attack and defend LLM-powered applications. Each module follows a four-phase **EXPLORE → LEARN → PROVE → REFLECT** pedagogy based on Kolb's experiential learning cycle.
 
