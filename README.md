@@ -42,7 +42,7 @@ python --version        # Should show 3.10+
 ### Step 2 — Clone the Repository
 
 ```bash
-git clone https://github.com/sabat090/promptlabs.git
+git clone https://github.com/sabat090/LLM_H4CK_101.git
 cd promptlabs
 ```
 
